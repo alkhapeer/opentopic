@@ -536,9 +536,11 @@
         <p class="subtext" id="players-ready" data-i18n="playersCountHelp">أضف أسماء اللاعبين المحددين لبدء المباراة.</p>
         <p class="subtext" data-i18n="groupNote">كل اللاعبين يجيبون عن السؤال نفسه بالتناوب، ثم يصوّتون لأفضل إجابة.</p>
       </div>
-      <label class="field-label" for="reward-input" data-i18n="rewardLabel">المكافأة للفائز (اختياري)</label>
-<input class="name-input" id="reward-input" maxlength="80" data-i18n-placeholder="rewardPlaceholder" placeholder="مثال: الفائز لا يدفع الحساب الليلة، أو وجبة مجانية">
-<p class="subtext" data-i18n="rewardHint">اتفقوا قبل البدء على ما سيحصل عليه الفائز. اتركوه فارغًا إن لم ترغبوا بمكافأة.</p>
+        <!-- ⬇️ انقل هذه الأسطر إلى هنا (داخل players-block) -->
+  <label class="field-label" for="reward-input" data-i18n="rewardLabel">المكافأة للفائز (اختياري)</label>
+  <input class="name-input" id="reward-input" maxlength="80" data-i18n-placeholder="rewardPlaceholder" placeholder="مثال: الفائز لا يدفع الحساب الليلة، أو وجبة مجانية">
+  <p class="subtext" data-i18n="rewardHint">اتفقوا قبل البدء على ما سيحصل عليه الفائز. اتركوه فارغًا إن لم ترغبوا بمكافأة.</p>
+</div>
       <div class="setup-actions">
         <button class="btn btn-primary" id="start-game" type="button" data-i18n="letsPlay">يلا نلعب!</button>
       </div>
@@ -655,7 +657,7 @@ scoreboardTitle:'لوحة النجوم',roundLabel:'الجولة',voteTitle:'م�
 voteSubtitle:'صوّتوا لاختيار فائز الجولة. الفائز يحصل على نجمة.',voteWinner:'حصل {name} على نجمة!',
 gameWinner:'🏆 {name} فاز بالمباراة!',nextRound:'الجولة التالية ↗',restartGame:'ابدأ مباراة جديدة ↻',
 currentPlayer:'دور {name}',roundDone:'انتهت الإجابات — اختاروا الفائز',
-  rewardLabel:'المكافأة للفائز (اختياري)',
+rewardLabel:'المكافأة للفائز (اختياري)',
 rewardPlaceholder:'مثال: الفائز لا يدفع الحساب الليلة، أو وجبة مجانية',
 rewardHint:'اتفقوا قبل البدء على ما سيحصل عليه الفائز. اتركوه فارغًا إن لم ترغبوا بمكافأة.',
 rewardBanner:'🏆 المكافأة: {reward}',
@@ -886,13 +888,16 @@ function addPlayer(){
 }
 function beginGame(){
   if(mode==='group'&&players.length!==targetPlayerCount){showToast(interpolate(t('playersCountExact'),{count:targetPlayerCount}));return}
-  gameStarted=true;playerIndex=0;roundStarter=0;turnsCompleted=0;roundNumber=1;
-  function beginGame(){
-  if(mode==='group'&&players.length!==targetPlayerCount){showToast(interpolate(t('playersCountExact'),{count:targetPlayerCount}));return}
   gameStarted=true;
-  rewardText=(($('reward-input')&&$('reward-input').value)||'').trim();  // ← السطر الجديد
+  rewardText=(($('reward-input')&&$('reward-input').value)||'').trim();
   playerIndex=0;roundStarter=0;turnsCompleted=0;roundNumber=1;
-  // ... الباقي كما هو
+  roundComplete=false;roundScored=false;gameOver=false;playerScores=players.map(()=>0);
+  $('setup-panel').classList.add('hidden');$('question-wrap').classList.remove('hidden');$('shared-banner').classList.add('hidden');
+  currentQ=chooseQuestion(selectedCat);
+  $('score-zone').classList.toggle('hidden',mode!=='group');
+  $('new-question').classList.toggle('hidden',mode==='group');
+  $('play-hint').textContent=mode==='group'?t('groupRoundHint'):t('soloHint');
+  renderQuestion();
 }
   roundComplete=false;roundScored=false;gameOver=false;playerScores=players.map(()=>0);
   $('setup-panel').classList.add('hidden');$('question-wrap').classList.remove('hidden');$('shared-banner').classList.add('hidden');
