@@ -11,7 +11,7 @@
       },
       "description": {
         "ar": "أسئلة خفيفة",
-        "en": "Light questions"
+        "en": "Quick, lighthearted prompts"
       }
     },
     {
@@ -23,7 +23,7 @@
       },
       "description": {
         "ar": "اكتشفوا بعضكم",
-        "en": "Know each other"
+        "en": "Get to know each other"
       }
     },
     {
@@ -35,7 +35,7 @@
       },
       "description": {
         "ar": "فكّر بعمق",
-        "en": "Think deeper"
+        "en": "Go beyond small talk"
       }
     },
     {
@@ -47,7 +47,7 @@
       },
       "description": {
         "ar": "اختر بين اثنين",
-        "en": "Pick one of two"
+        "en": "Choose between two options"
       }
     },
     {
@@ -59,7 +59,7 @@
       },
       "description": {
         "ar": "للجميع",
-        "en": "For everyone"
+        "en": "Questions for all ages"
       }
     }
   ],
@@ -68,151 +68,151 @@
       "id": "fun-01",
       "cat": "fun",
       "ar": "لو كان بإمكانك حذف موقف محرج واحد من ذاكرتك، أي موقف ستختار؟",
-      "en": "If you could erase one embarrassing moment from your memory, which would it be?"
+      "en": "If you could wipe one embarrassing moment from your memory, which one would it be?"
     },
     {
       "id": "fun-02",
       "cat": "fun",
       "ar": "ما أغرب شيء كنت تصدقه وأنت صغير؟",
-      "en": "What is the strangest thing you believed as a child?"
+      "en": "What’s the weirdest thing you believed when you were a kid?"
     },
     {
       "id": "fun-03",
       "cat": "fun",
       "ar": "لو أصبحت مشهوراً فجأة، ما السبب الأكثر احتمالاً؟",
-      "en": "If you suddenly became famous, what would it most likely be for?"
+      "en": "If you became famous overnight, what do you think it would be for?"
     },
     {
       "id": "fun-04",
       "cat": "fun",
       "ar": "ما الطعام الذي تحبه رغم أن معظم الناس حولك لا يحبونه؟",
-      "en": "What food do you love even though most people around you dislike it?"
+      "en": "What food do you love that most people you know can’t stand?"
     },
     {
       "id": "fun-05",
       "cat": "fun",
       "ar": "لو كان لحيوانك الأليف حساب على السوشيال ميديا، ماذا سينشر؟",
-      "en": "If your pet had a social media account, what would it post?"
+      "en": "If your pet had its own social media account, what would it post?"
     },
     {
       "id": "fun-06",
       "cat": "fun",
       "ar": "ما أسوأ عذر استخدمته للتأخر عن موعد؟",
-      "en": "What is the worst excuse you have used for being late?"
+      "en": "What’s the worst excuse you’ve ever used for being late?"
     },
     {
       "id": "fun-07",
       "cat": "fun",
       "ar": "لو كان عليك استخدام تطبيق واحد فقط لمدة شهر، ماذا تختار؟",
-      "en": "If you could use only one app for a month, which would you choose?"
+      "en": "If you could keep only one app on your phone for a month, which one would you choose?"
     },
     {
       "id": "fun-08",
       "cat": "fun",
       "ar": "ما الموهبة عديمة الفائدة التي تتمنى امتلاكها؟",
-      "en": "What completely useless talent do you wish you had?"
+      "en": "What’s a totally useless skill you wish you had?"
     },
     {
       "id": "friends-01",
       "cat": "friends",
       "ar": "ما أول انطباع أخذته عن أقرب صديق لك؟ وهل تغيّر؟",
-      "en": "What was your first impression of your closest friend? Has it changed?"
+      "en": "What was your first impression of your closest friend—and has it changed?"
     },
     {
       "id": "friends-02",
       "cat": "friends",
       "ar": "من بين أصدقائك، من يستطيع تحويل يوم سيئ إلى يوم جيد؟",
-      "en": "Which of your friends can turn a bad day into a good one?"
+      "en": "Which friend can always turn a bad day around for you?"
     },
     {
       "id": "friends-03",
       "cat": "friends",
       "ar": "ما المغامرة التي تتمنى أن تخوضها مع أصدقائك؟",
-      "en": "What adventure would you love to have with your friends?"
+      "en": "What’s an adventure you’d love to go on with your friends?"
     },
     {
       "id": "friends-04",
       "cat": "friends",
       "ar": "ما الشيء البسيط الذي يجعل الصداقة تستمر لسنوات؟",
-      "en": "What simple thing helps a friendship last for years?"
+      "en": "What little thing helps a friendship last for years?"
     },
     {
       "id": "friends-05",
       "cat": "friends",
       "ar": "ما ذكرى مع أصدقائك تجعلك تضحك كلما تذكرتها؟",
-      "en": "What memory with your friends makes you laugh every time?"
+      "en": "What memory with your friends still makes you laugh?"
     },
     {
       "id": "friends-06",
       "cat": "friends",
       "ar": "هل تفضّل صديقاً يشبهك أم صديقاً يختلف عنك؟ ولماذا؟",
-      "en": "Would you rather have a friend like you or someone very different? Why?"
+      "en": "Would you rather have a friend who’s a lot like you or one who’s your complete opposite? Why?"
     },
     {
       "id": "friends-07",
       "cat": "friends",
       "ar": "ما الشيء الذي تتمنى أن تجرّبه مع أصدقائك ولم تفعلوه بعد؟",
-      "en": "What is something you wish you would try with your friends but have not yet?"
+      "en": "What’s something you’ve always wanted to try with your friends but haven’t yet?"
     },
     {
       "id": "friends-08",
       "cat": "friends",
       "ar": "كيف تعرف أن بإمكانك الثقة بشخص ما؟",
-      "en": "How do you know you can trust someone?"
+      "en": "What makes you feel you can trust someone?"
     },
     {
       "id": "deep-01",
       "cat": "deep",
       "ar": "لو أمكنك تعلّم مهارة جديدة فوراً، ماذا ستختار؟",
-      "en": "If you could instantly learn one new skill, what would you choose?"
+      "en": "If you could master one new skill instantly, what would it be?"
     },
     {
       "id": "deep-02",
       "cat": "deep",
       "ar": "هل تفضّل أن يعرفك الجميع جيداً أم أن يفهمك شخص واحد بعمق؟",
-      "en": "Would you rather be well known by everyone or deeply understood by one person?"
+      "en": "Would you rather be known by everyone or truly understood by one person?"
     },
     {
       "id": "deep-03",
       "cat": "deep",
       "ar": "ما الشيء الذي غيّرت رأيك فيه تماماً مع مرور الوقت؟",
-      "en": "What is something you have completely changed your mind about over time?"
+      "en": "What’s something you once believed but have since changed your mind about?"
     },
     {
       "id": "deep-04",
       "cat": "deep",
       "ar": "ما تعريفك الشخصي للحياة الناجحة؟",
-      "en": "What is your personal definition of a successful life?"
+      "en": "What does a successful life look like to you?"
     },
     {
       "id": "deep-05",
       "cat": "deep",
       "ar": "هل تعتقد أن الناس يتغيرون فعلاً، أم أنهم يكشفون حقيقتهم فقط؟",
-      "en": "Do you think people truly change, or simply reveal who they always were?"
+      "en": "Do people really change, or do they just reveal who they’ve been all along?"
     },
     {
       "id": "deep-06",
       "cat": "deep",
       "ar": "ما نصيحة تمنيت لو أنك سمعتها قبل خمس سنوات؟",
-      "en": "What advice do you wish you had heard five years ago?"
+      "en": "What advice do you wish someone had given you five years ago?"
     },
     {
       "id": "deep-07",
       "cat": "deep",
       "ar": "ما الشيء الذي تود أن يتذكرك الناس به؟",
-      "en": "What would you like people to remember you for?"
+      "en": "What would you most like to be remembered for?"
     },
     {
       "id": "deep-08",
       "cat": "deep",
       "ar": "لو استطعت أن تسأل نفسك في المستقبل سؤالاً واحداً، فماذا تسأل؟",
-      "en": "If you could ask your future self one question, what would you ask?"
+      "en": "If you could ask your future self one question, what would it be?"
     },
     {
       "id": "choices-01",
       "cat": "choices",
       "ar": "هل تفضّل السفر إلى الماضي لمشاهدة التاريخ، أم إلى المستقبل لرؤيته؟",
-      "en": "Would you rather travel to the past to witness history or to the future to see what happens?"
+      "en": "Would you rather travel back in time to witness history or jump ahead to see the future?"
     },
     {
       "id": "choices-02",
@@ -224,13 +224,13 @@
       "id": "choices-03",
       "cat": "choices",
       "ar": "هل تفضّل معرفة الحقيقة حتى لو أزعجتك، أم البقاء سعيداً دون معرفتها؟",
-      "en": "Would you rather know an uncomfortable truth or stay happy without knowing it?"
+      "en": "Would you rather hear a hard truth or stay happy without knowing it?"
     },
     {
       "id": "choices-04",
       "cat": "choices",
       "ar": "هل تفضّل العيش قرب البحر أم بين الجبال؟",
-      "en": "Would you rather live by the sea or among the mountains?"
+      "en": "Would you rather live by the sea or in the mountains?"
     },
     {
       "id": "choices-05",
@@ -242,13 +242,13 @@
       "id": "choices-06",
       "cat": "choices",
       "ar": "هل تفضّل وظيفة تحبها براتب متوسط أم وظيفة لا تحبها براتب مرتفع؟",
-      "en": "Would you rather have a job you love with an average salary or a high-paying job you dislike?"
+      "en": "Would you rather love your job with an average salary or earn more at a job you don’t enjoy?"
     },
     {
       "id": "choices-07",
       "cat": "choices",
       "ar": "هل تفضّل عطلة مليئة بالمغامرات أم عطلة هادئة بلا خطط؟",
-      "en": "Would you rather have an adventurous vacation or a peaceful one with no plans?"
+      "en": "Would you rather go on an adventure-packed vacation or enjoy a relaxing getaway with no plans?"
     },
     {
       "id": "choices-08",
@@ -260,49 +260,49 @@
       "id": "family-01",
       "cat": "family",
       "ar": "ما العادة العائلية التي تتمنى أن تستمر لأجيال؟",
-      "en": "What family tradition would you like to continue for generations?"
+      "en": "What family tradition would you love to pass down for generations?"
     },
     {
       "id": "family-02",
       "cat": "family",
       "ar": "ما الوجبة التي تجعلك تشعر أنك في بيتك مهما كنت بعيداً؟",
-      "en": "What meal makes you feel at home no matter how far away you are?"
+      "en": "What meal makes you feel at home, no matter where you are?"
     },
     {
       "id": "family-03",
       "cat": "family",
       "ar": "ما أفضل نصيحة تعلّمتها من أحد أفراد عائلتك؟",
-      "en": "What is the best advice you learned from a family member?"
+      "en": "What’s the best advice a family member has ever given you?"
     },
     {
       "id": "family-04",
       "cat": "family",
       "ar": "لو نظّمت يوماً مثالياً للعائلة، كيف سيكون؟",
-      "en": "If you planned a perfect family day, what would it look like?"
+      "en": "What would your perfect day with the family look like?"
     },
     {
       "id": "family-05",
       "cat": "family",
       "ar": "ما لعبة أو نشاط كان يجمع العائلة وتود إعادته؟",
-      "en": "What game or activity used to bring your family together that you would revive?"
+      "en": "What family game or activity from your childhood would you love to bring back?"
     },
     {
       "id": "family-06",
       "cat": "family",
       "ar": "ما الصفة الجميلة التي تعلّمتها من عائلتك؟",
-      "en": "What good quality did you learn from your family?"
+      "en": "What’s one good quality you picked up from your family?"
     },
     {
       "id": "family-07",
       "cat": "family",
       "ar": "لو أمكنك قضاء يوم كامل مع أي فرد من العائلة، ماذا ستفعلان؟",
-      "en": "If you could spend a whole day with any family member, what would you do together?"
+      "en": "If you could spend a whole day with one family member, who would it be and what would you do?"
     },
     {
       "id": "family-08",
       "cat": "family",
       "ar": "ما الشيء البسيط الذي يجعل البيت مكاناً مريحاً بالنسبة لك؟",
-      "en": "What small thing makes a house feel comforting to you?"
+      "en": "What little thing makes a house feel like home?"
     }
   ]
 }
