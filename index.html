@@ -142,6 +142,7 @@
     .vote-btn{border:1px solid #ded7f5;background:#f8f5ff;color:#37256f;border-radius:13px;padding:10px 12px;font-weight:850;text-align:start;min-height:44px}
     .vote-btn:hover{background:#eee7ff;border-color:#ab9aee}
     .round-vote .btn{width:100%;margin-top:10px}
+    .reward-banner{background:#fff9dc;border:1px solid #f4e7b9;border-radius:14px;padding:10px 14px;font-size:13px;color:#7a5c00;font-weight:850;margin-bottom:12px;text-align:center;line-height:1.6;overflow-wrap:anywhere}
 
     /* ── Featured / categories ────────────────── */
     .featured{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;background:#e8f7f3;border:1px solid #cfede6;border-radius:25px;padding:23px 26px}
@@ -353,7 +354,7 @@
       </div>
       <div class="hero-art" aria-hidden="true">
         <span class="floating-dot"></span>
-        <img class="hero-logo" src="/assets/opentopic-full-logo.png" alt="">
+        <img class="hero-logo" src="/icons/favicon-32.png" alt="">
         <div class="floating-card"><small data-i18n="littleSurprise">سؤال اليوم</small><span data-i18n="readyForQuestion">جاهز لسؤال؟ ✦</span></div>
       </div>
     </section>
@@ -535,6 +536,9 @@
         <p class="subtext" id="players-ready" data-i18n="playersCountHelp">أضف أسماء اللاعبين المحددين لبدء المباراة.</p>
         <p class="subtext" data-i18n="groupNote">كل اللاعبين يجيبون عن السؤال نفسه بالتناوب، ثم يصوّتون لأفضل إجابة.</p>
       </div>
+      <label class="field-label" for="reward-input" data-i18n="rewardLabel">المكافأة للفائز (اختياري)</label>
+<input class="name-input" id="reward-input" maxlength="80" data-i18n-placeholder="rewardPlaceholder" placeholder="مثال: الفائز لا يدفع الحساب الليلة، أو وجبة مجانية">
+<p class="subtext" data-i18n="rewardHint">اتفقوا قبل البدء على ما سيحصل عليه الفائز. اتركوه فارغًا إن لم ترغبوا بمكافأة.</p>
       <div class="setup-actions">
         <button class="btn btn-primary" id="start-game" type="button" data-i18n="letsPlay">يلا نلعب!</button>
       </div>
@@ -556,6 +560,7 @@
           <strong data-i18n="scoreboardTitle">لوحة النجوم</strong>
           <span id="round-label">الجولة 1</span>
         </div>
+        <div id="reward-banner" class="reward-banner hidden"></div>
         <div id="scoreboard" class="scoreboard"></div>
         <div id="round-vote" class="round-vote hidden">
           <h3 id="vote-title" data-i18n="voteTitle">من قدّم أفضل إجابة؟</h3>
@@ -650,6 +655,10 @@ scoreboardTitle:'لوحة النجوم',roundLabel:'الجولة',voteTitle:'م�
 voteSubtitle:'صوّتوا لاختيار فائز الجولة. الفائز يحصل على نجمة.',voteWinner:'حصل {name} على نجمة!',
 gameWinner:'🏆 {name} فاز بالمباراة!',nextRound:'الجولة التالية ↗',restartGame:'ابدأ مباراة جديدة ↻',
 currentPlayer:'دور {name}',roundDone:'انتهت الإجابات — اختاروا الفائز',
+  rewardLabel:'المكافأة للفائز (اختياري)',
+rewardPlaceholder:'مثال: الفائز لا يدفع الحساب الليلة، أو وجبة مجانية',
+rewardHint:'اتفقوا قبل البدء على ما سيحصل عليه الفائز. اتركوه فارغًا إن لم ترغبوا بمكافأة.',
+rewardBanner:'🏆 المكافأة: {reward}',
 shareOptionsTitle:'شارك هذا السؤال',shareOptionsIntro:'اختر التطبيق الذي تريد مشاركة السؤال من خلاله، أو نزّل بطاقة الصورة.',
 shareWhatsApp:'WhatsApp',shareFacebook:'Facebook',shareTelegram:'Telegram',shareX:'X / Twitter',
 shareNative:'مشاركة عبر التطبيقات…',copyLink:'نسخ الرابط',downloadCard:'تنزيل بطاقة السؤال PNG',
@@ -704,6 +713,10 @@ scoreboardTitle:'Star scoreboard',roundLabel:'Round',voteTitle:'Who gave the bes
 voteSubtitle:'Vote for this round\u2019s winner. The winner earns a star.',voteWinner:'{name} earned a star!',
 gameWinner:'🏆 {name} won the game!',nextRound:'Next round ↗',restartGame:'Start a new match ↻',
 currentPlayer:'{name}\u2019s turn',roundDone:'Everyone answered — choose the winner',
+  rewardLabel:'Winner reward (optional)',
+rewardPlaceholder:'e.g. Winner doesn\'t pay the bill tonight, or a free meal',
+rewardHint:'Agree before you start on what the winner gets. Leave it blank if you prefer no reward.',
+rewardBanner:'🏆 Reward: {reward}',
 shareOptionsTitle:'Share this question',shareOptionsIntro:'Choose an app to share the question, or download its card image.',
 shareWhatsApp:'WhatsApp',shareFacebook:'Facebook',shareTelegram:'Telegram',shareX:'X / Twitter',
 shareNative:'Share with other apps…',copyLink:'Copy link',downloadCard:'Download question card PNG',
@@ -730,8 +743,7 @@ adPlaceholder:'Ad space'
 
 let library={categories:[],questions:[]};
 let questions=[];
-let cats=[];
-let lang='ar',mode='solo',selectedCat='all',lastIds=[],players=[],playerScores=[],playerIndex=0,targetPlayerCount=2,currentQ=null,gameStarted=false,sharedQuestion=false,installPrompt=null,toastTimer=null,roundNumber=1,roundStarter=0,turnsCompleted=0,roundComplete=false,roundScored=false,gameOver=false;
+let cats=[];let lang='ar',mode='solo',selectedCat='all',lastIds=[],players=[],playerScores=[],playerIndex=0,targetPlayerCount=2,currentQ=null,gameStarted=false,sharedQuestion=false,installPrompt=null,toastTimer=null,roundNumber=1,roundStarter=0,turnsCompleted=0,roundComplete=false,roundScored=false,gameOver=false,rewardText='';
 const WIN_SCORE=5;
 const PLAYER_COLORS=['#ffe08a','#bfeee6','#d8ccff','#ffcbd5'];
 
@@ -824,7 +836,8 @@ function chooseQuestion(cat){
 function startMode(which,cat){
   mode=which;selectedCat=cat||'all';sharedQuestion=false;gameStarted=false;currentQ=null;
   roundNumber=1;roundComplete=false;roundScored=false;gameOver=false;
-  if(which==='group'){players=[];playerScores=[];playerIndex=0;roundStarter=0;turnsCompleted=0;targetPlayerCount=2;}
+  if(which==='group'){players=[];playerScores=[];playerIndex=0;roundStarter=0;turnsCompleted=0;targetPlayerCount=2; rewardText='';
+  const r=$('reward-input');if(r)r.value='';}
   $('contact-view').classList.add('hidden');
   $('home-view').classList.remove('hidden');$('setup-panel').classList.remove('hidden');
   $('question-wrap').classList.add('hidden');$('shared-banner').classList.add('hidden');
@@ -874,6 +887,13 @@ function addPlayer(){
 function beginGame(){
   if(mode==='group'&&players.length!==targetPlayerCount){showToast(interpolate(t('playersCountExact'),{count:targetPlayerCount}));return}
   gameStarted=true;playerIndex=0;roundStarter=0;turnsCompleted=0;roundNumber=1;
+  function beginGame(){
+  if(mode==='group'&&players.length!==targetPlayerCount){showToast(interpolate(t('playersCountExact'),{count:targetPlayerCount}));return}
+  gameStarted=true;
+  rewardText=(($('reward-input')&&$('reward-input').value)||'').trim();  // ← السطر الجديد
+  playerIndex=0;roundStarter=0;turnsCompleted=0;roundNumber=1;
+  // ... الباقي كما هو
+}
   roundComplete=false;roundScored=false;gameOver=false;playerScores=players.map(()=>0);
   $('setup-panel').classList.add('hidden');$('question-wrap').classList.remove('hidden');$('shared-banner').classList.add('hidden');
   currentQ=chooseQuestion(selectedCat);
@@ -912,7 +932,11 @@ function awardStar(index){
   if(playerScores[index]>=WIN_SCORE){
     gameOver=true;
     $('vote-title').textContent=interpolate(t('gameWinner'),{name:winner});
-    $('vote-subtitle').textContent=lang==='ar'?'وصل إلى '+WIN_SCORE+' نجوم. أحسنتم!':'Reached '+WIN_SCORE+' stars. Well played!';
+    const base=lang==='ar'?'وصل إلى '+WIN_SCORE+' نجوم. أحسنتم!':'Reached '+WIN_SCORE+' stars. Well played!';
+    $('vote-subtitle').textContent=rewardText
+    ? (lang==='ar'?'وصل إلى '+WIN_SCORE+' نجوم. المكافأة: '+rewardText
+                :'Reached '+WIN_SCORE+' stars. Reward: '+rewardText)
+  : base;
     $('restart-game').classList.remove('hidden');$('next-round').classList.add('hidden');
   }else{
     $('vote-title').textContent=interpolate(t('voteWinner'),{name:winner});
@@ -936,6 +960,11 @@ function restartGame(){
 function renderScoreboard(){
   const wrap=$('scoreboard');wrap.innerHTML='';
   $('round-label').textContent=t('roundLabel')+' '+roundNumber;
+  const rb=$('reward-banner');
+if(rb){
+  if(rewardText){rb.classList.remove('hidden');rb.textContent=interpolate(t('rewardBanner'),{reward:rewardText});}
+  else rb.classList.add('hidden');
+}
   players.forEach((name,i)=>{
     const card=document.createElement('div');
     card.className='score-player'+(mode==='group'&&!roundComplete&&i===playerIndex?' active-player':'');
