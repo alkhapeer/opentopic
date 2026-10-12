@@ -479,7 +479,6 @@
           <button class="copy-btn" id="copy-email" type="button" data-i18n="copyEmail">نسخ البريد</button>
         </div>
         <p class="subtext" data-i18n="contactCopyHint">النص قابل للتحديد والنسخ فقط، ولا يفتح أي تطبيق بريد تلقائيًا.</p>
-
         <div class="contact-benefits">
           <div class="contact-benefit">
             <strong data-i18n="benefit1Title">جمهور عربي وإنجليزي</strong>
@@ -504,7 +503,7 @@
     </div>
   </main>
 
-  <!-- ══════════ PLAY AREA ══════════ -->
+<!-- ══════════ PLAY AREA ══════════ -->
   <section class="play-area" id="play-area" aria-live="polite">
     <div class="play-top">
       <div>
@@ -520,6 +519,7 @@
         <label class="field-label" data-i18n="chooseCategory">اختر فئة الأسئلة</label>
         <div class="category-grid" id="setup-categories"></div>
       </div>
+
       <div id="players-block" class="hidden">
         <label class="field-label" data-i18n="playerCountLabel">كم لاعباً؟</label>
         <div class="player-count-picker" id="player-count-picker" role="group" aria-label="Player count">
@@ -535,12 +535,12 @@
         <div class="player-list" id="player-list"></div>
         <p class="subtext" id="players-ready" data-i18n="playersCountHelp">أضف أسماء اللاعبين المحددين لبدء المباراة.</p>
         <p class="subtext" data-i18n="groupNote">كل اللاعبين يجيبون عن السؤال نفسه بالتناوب، ثم يصوّتون لأفضل إجابة.</p>
+
+        <label class="field-label" for="reward-input" data-i18n="rewardLabel">المكافأة للفائز (اختياري)</label>
+        <input class="name-input" id="reward-input" maxlength="80" data-i18n-placeholder="rewardPlaceholder" placeholder="مثال: الفائز لا يدفع الحساب الليلة، أو وجبة مجانية">
+        <p class="subtext" data-i18n="rewardHint">اتفقوا قبل البدء على ما سيحصل عليه الفائز. اتركوه فارغًا إن لم ترغبوا بمكافأة.</p>
       </div>
-        <!-- ⬇️ انقل هذه الأسطر إلى هنا (داخل players-block) -->
-  <label class="field-label" for="reward-input" data-i18n="rewardLabel">المكافأة للفائز (اختياري)</label>
-  <input class="name-input" id="reward-input" maxlength="80" data-i18n-placeholder="rewardPlaceholder" placeholder="مثال: الفائز لا يدفع الحساب الليلة، أو وجبة مجانية">
-  <p class="subtext" data-i18n="rewardHint">اتفقوا قبل البدء على ما سيحصل عليه الفائز. اتركوه فارغًا إن لم ترغبوا بمكافأة.</p>
-</div>
+
       <div class="setup-actions">
         <button class="btn btn-primary" id="start-game" type="button" data-i18n="letsPlay">يلا نلعب!</button>
       </div>
@@ -572,6 +572,15 @@
           <button class="btn btn-primary hidden" id="restart-game" type="button" data-i18n="restartGame">ابدأ مباراة جديدة ↻</button>
         </div>
       </section>
+
+      <div class="question-footer">
+        <button class="mini-btn" id="new-question" type="button" data-i18n="anotherQuestion">سؤال آخر ↻</button>
+        <button class="mini-btn" id="share-current" type="button" data-i18n="shareCard">شارك البطاقة ↗</button>
+        <button class="mini-btn primary hidden" id="next-turn" type="button" data-i18n="nextTurn">اللاعب التالي ←</button>
+      </div>
+      <p class="solo-hint" id="play-hint" data-i18n="soloHint">لا توجد إجابة صحيحة أو خاطئة — هذه لعبتك!</p>
+    </div>
+  </section>
 
       <div class="question-footer">
         <button class="mini-btn" id="new-question" type="button" data-i18n="anotherQuestion">سؤال آخر ↻</button>
@@ -837,7 +846,7 @@ function chooseQuestion(cat){
 
 function startMode(which,cat){
   mode=which;selectedCat=cat||'all';sharedQuestion=false;gameStarted=false;currentQ=null;
-  roundNumber=1;roundComplete=false;roundScored=false;gameOver=false;
+  roundNumber=1;roundScored=false;gameOver=false;
   if(which==='group'){players=[];playerScores=[];playerIndex=0;roundStarter=0;turnsCompleted=0;targetPlayerCount=2; rewardText='';
   const r=$('reward-input');if(r)r.value='';}
   $('contact-view').classList.add('hidden');
@@ -891,7 +900,7 @@ function beginGame(){
   gameStarted=true;
   rewardText=(($('reward-input')&&$('reward-input').value)||'').trim();
   playerIndex=0;roundStarter=0;turnsCompleted=0;roundNumber=1;
-  roundComplete=false;roundScored=false;gameOver=false;playerScores=players.map(()=>0);
+  roundScored=false;gameOver=false;playerScores=players.map(()=>0);
   $('setup-panel').classList.add('hidden');$('question-wrap').classList.remove('hidden');$('shared-banner').classList.add('hidden');
   currentQ=chooseQuestion(selectedCat);
   $('score-zone').classList.toggle('hidden',mode!=='group');
@@ -899,15 +908,7 @@ function beginGame(){
   $('play-hint').textContent=mode==='group'?t('groupRoundHint'):t('soloHint');
   renderQuestion();
 }
-  roundComplete=false;roundScored=false;gameOver=false;playerScores=players.map(()=>0);
-  $('setup-panel').classList.add('hidden');$('question-wrap').classList.remove('hidden');$('shared-banner').classList.add('hidden');
-  currentQ=chooseQuestion(selectedCat);
-  $('score-zone').classList.toggle('hidden',mode!=='group');
-  $('new-question').classList.toggle('hidden',mode==='group');
-  $('play-hint').textContent=mode==='group'?t('groupRoundHint'):t('soloHint');
-  renderQuestion();
-}
-function nextQuestion(){currentQ=chooseQuestion(selectedCat);renderQuestion()}
+
 function nextTurn(){
   if(mode!=='group'||roundComplete)return;
   if(turnsCompleted<players.length-1){turnsCompleted++;playerIndex=(playerIndex+1)%players.length;renderQuestion();return;}
@@ -953,13 +954,13 @@ function awardStar(index){
 function nextRound(){
   if(!roundScored||gameOver)return;
   roundNumber++;roundStarter=(roundStarter+1)%players.length;playerIndex=roundStarter;turnsCompleted=0;
-  currentQ=chooseQuestion(selectedCat);roundComplete=false;roundScored=false;
+  currentQ=chooseQuestion(selectedCat);roundScored=false;
   $('round-vote').classList.add('hidden');$('vote-buttons').classList.remove('hidden');
   $('score-zone').classList.remove('hidden');renderQuestion();
 }
 function restartGame(){
   playerScores=players.map(()=>0);roundNumber=1;roundStarter=0;turnsCompleted=0;playerIndex=0;
-  roundComplete=false;roundScored=false;gameOver=false;currentQ=chooseQuestion(selectedCat);
+  roundScored=false;gameOver=false;currentQ=chooseQuestion(selectedCat);
   $('round-vote').classList.add('hidden');$('vote-buttons').classList.remove('hidden');renderQuestion();
 }
 function renderScoreboard(){
@@ -1014,7 +1015,7 @@ function renderQuestion(){
 }
 function playQuestion(q,asShare){
   mode=asShare?'share':'solo';selectedCat=q.cat;currentQ=q;gameStarted=true;sharedQuestion=false;
-  roundComplete=false;roundScored=false;gameOver=false;
+  roundScored=false;gameOver=false;
   $('setup-panel').classList.add('hidden');$('question-wrap').classList.remove('hidden');
   $('shared-banner').classList.add('hidden');$('players-block').classList.add('hidden');
   $('setup-category-block').classList.remove('hidden');
